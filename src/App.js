@@ -1,25 +1,22 @@
-import logo from './logo.svg';
 import './App.css';
+import { useState } from 'react';
+import Todos from './components/Todos';
+import Post from './components/Post';
+import User from './components/User';
+
 
 function App() {
+  
+const[component,setComponent]= useState(<User/>)
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+  <button onClick={()=>setComponent(<User/>)}>Users</button>
+  <button onClick={()=>setComponent(<Post/>)}>Posts</button>
+  <button onClick={()=>setComponent(<Todos/>)}>To Do's</button>
+    {component}
+    </>
+  )
 }
 
 export default App;
